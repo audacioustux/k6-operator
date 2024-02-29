@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       image_tag:
-        description: 'Image tag name.'
+        description: "Image tag name."
         required: true
   release:
     types:
@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Build:checkout"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: "Set image tag name"
         run: |
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
