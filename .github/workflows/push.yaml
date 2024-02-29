@@ -50,7 +50,7 @@ jobs:
           file: Dockerfile.controller
           build-args: |
             GO_BUILDER_IMG=golang:1.22
-          platforms: linux/amd64,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
+          platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: ghcr.io/audacioustux/k6-operator:latest,ghcr.io/audacioustux/k6-operator:controller-${{env.IMAGETAG}}
       - name: "Build:dockerimage"
         uses: docker/build-push-action@v5
@@ -58,7 +58,7 @@ jobs:
           context: .
           push: true
           file: Dockerfile.runner
-          platforms: linux/amd64,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
+          platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: ghcr.io/audacioustux/k6-operator:latest-runner,ghcr.io/audacioustux/k6-operator:runner-${{env.IMAGETAG}}
       - name: "Build:dockerimage"
         uses: docker/build-push-action@v5
@@ -66,7 +66,7 @@ jobs:
           context: .
           push: true
           file: Dockerfile.starter
-          platforms: linux/amd64,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
+          platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: ghcr.io/audacioustux/k6-operator:latest-starter,ghcr.io/audacioustux/k6-operator:starter-${{env.IMAGETAG}}
 
   bundle:
