@@ -1,5 +1,5 @@
-FROM gcr.io/distroless/static:nonroot
+FROM gcr.io/distroless/static
+USER nonroot:nonroot
 
-# as defined by distroless for nonroot
-USER 65532:65532
+COPY --from=buildpack-deps:stretch-curl /usr/bin/curl /bin/curl
 COPY --from=kvij/scuttle:latest /scuttle /bin/scuttle
