@@ -1,5 +1,13 @@
-FROM gcr.io/distroless/static
-USER nonroot:nonroot
+FROM alpine
 
-COPY --from=buildpack-deps:stretch-curl /usr/bin/curl /bin/curl
+RUN apk add --no-cache curl
+
+ARG USER=nonroot
+RUN adduser -D $USER \
+    && mkdir -p /etc/sudoers.d \
+    && echo "$USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/$USER \
+    && chmod 0440 /etc/sudoers.d/$USER
+
+USER $USER
+
 COPY --from=kvij/scuttle:latest /scuttle /bin/scuttle
