@@ -27,7 +27,7 @@ jobs:
           build-args: |
             GO_BUILDER_IMG=golang:1.22
           tags: |
-            ghcr.io/grafana/k6-operator:${{ github.sha }}
+            ghcr.io/audacioustux/k6-operator:${{ github.sha }}
 
   kind-kustomize:
     needs: ["docker"]
@@ -50,7 +50,7 @@ jobs:
           kubectl cluster-info
           kubectl cluster-info dump | grep 'nodeInfo' -A 11
           kubectl apply -f rendered.yaml
-          kubectl -n k6-operator-system set image deployment/k6-operator-controller-manager manager=ghcr.io/grafana/k6-operator:${{ github.sha }}
+          kubectl -n k6-operator-system set image deployment/k6-operator-controller-manager manager=ghcr.io/audacioustux/k6-operator:${{ github.sha }}
           kubectl -n k6-operator-system describe deployment k6-operator-controller-manager
           kubectl create configmap crocodile-stress-test --from-file e2e/test.js
           kubectl apply -f e2e/test.yaml

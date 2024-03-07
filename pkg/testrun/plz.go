@@ -30,7 +30,7 @@ func NewPLZTestRun(plz *v1alpha1.PrivateLoadZone, trData *cloud.TestRunData, ing
 
 	initContainer := containers.NewS3InitContainer(
 		trData.ArchiveURL,
-		"ghcr.io/grafana/k6-operator:latest-starter",
+		"ghcr.io/audacioustux/k6-operator:latest-starter",
 		volumeMount,
 	)
 

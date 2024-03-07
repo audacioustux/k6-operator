@@ -19,16 +19,16 @@ Since around v0.0.7 k6-operator has been releasing a default runner image togeth
 | v0.0.9              | [runner-v0.0.9](ghcr.io/grafana/operator:runner-v0.0.9)       | v0.44.0 |
 | v0.0.10rc1          | [runner-v0.0.10rc1](ghcr.io/grafana/operator:runner-v0.0.10rc1)     | v0.44.1 |
 | v0.0.10rc2          | [runner-v0.0.10rc2](ghcr.io/grafana/operator:runner-v0.0.10rc2)     | v0.45.0 |
-| v0.0.10rc3          | [runner-v0.0.10rc3](ghcr.io/grafana/k6-operator:runner-v0.0.10rc3)  | v0.45.0 |
-| v0.0.10             | [runner-v0.0.10](ghcr.io/grafana/k6-operator:runner-v0.0.10)        | v0.46.0 |
-| v0.0.11rc1          | [runner-v0.0.11rc1](ghcr.io/grafana/k6-operator:runner-v0.0.11rc1)     | v0.46.0 |
-| v0.0.11rc2          | [runner-v0.0.11rc2](ghcr.io/grafana/k6-operator:runner-v0.0.11rc2)     | v0.46.0 |
-| v0.0.11rc3          | [runner-v0.0.11rc3](ghcr.io/grafana/k6-operator:runner-v0.0.11rc3)     | v0.46.0 |
-| v0.0.11             | [runner-v0.0.11](ghcr.io/grafana/k6-operator:runner-v0.0.11)           | v0.47.0 |
-| v0.0.12rc1          | [runner-v0.0.12rc1](ghcr.io/grafana/k6-operator:runner-v0.0.12rc1)     | v0.47.0 |
-| v0.0.12             | [runner-v0.0.12](ghcr.io/grafana/k6-operator:runner-v0.0.12)           | v0.48.0 |
-| v0.0.13rc1          | [runner-v0.0.13rc1](ghcr.io/grafana/k6-operator:runner-v0.0.13rc1)     | v0.48.0 |
-| v0.0.13             | [runner-v0.0.13](ghcr.io/grafana/k6-operator:runner-v0.0.13)           | v0.49.0 |
+| v0.0.10rc3          | [runner-v0.0.10rc3](ghcr.io/audacioustux/k6-operator:runner-v0.0.10rc3)  | v0.45.0 |
+| v0.0.10             | [runner-v0.0.10](ghcr.io/audacioustux/k6-operator:runner-v0.0.10)        | v0.46.0 |
+| v0.0.11rc1          | [runner-v0.0.11rc1](ghcr.io/audacioustux/k6-operator:runner-v0.0.11rc1)     | v0.46.0 |
+| v0.0.11rc2          | [runner-v0.0.11rc2](ghcr.io/audacioustux/k6-operator:runner-v0.0.11rc2)     | v0.46.0 |
+| v0.0.11rc3          | [runner-v0.0.11rc3](ghcr.io/audacioustux/k6-operator:runner-v0.0.11rc3)     | v0.46.0 |
+| v0.0.11             | [runner-v0.0.11](ghcr.io/audacioustux/k6-operator:runner-v0.0.11)           | v0.47.0 |
+| v0.0.12rc1          | [runner-v0.0.12rc1](ghcr.io/audacioustux/k6-operator:runner-v0.0.12rc1)     | v0.47.0 |
+| v0.0.12             | [runner-v0.0.12](ghcr.io/audacioustux/k6-operator:runner-v0.0.12)           | v0.48.0 |
+| v0.0.13rc1          | [runner-v0.0.13rc1](ghcr.io/audacioustux/k6-operator:runner-v0.0.13rc1)     | v0.48.0 |
+| v0.0.13             | [runner-v0.0.13](ghcr.io/audacioustux/k6-operator:runner-v0.0.13)           | v0.49.0 |
 
 ### What was used before?
 

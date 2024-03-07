@@ -321,7 +321,7 @@ func TestNewRunnerJob(t *testing.T) {
 					ServiceAccountName:           "default",
 					AutomountServiceAccountToken: &automountServiceAccountToken,
 					Containers: []corev1.Container{{
-						Image:           "ghcr.io/grafana/k6-operator:latest-runner",
+						Image:           "ghcr.io/audacioustux/k6-operator:latest-runner",
 						ImagePullPolicy: corev1.PullNever,
 						Name:            "k6",
 						Command:         []string{"k6", "run", "--quiet", "/test/test.js", "--address=0.0.0.0:6565", "--paused", "--tag", "instance_id=1", "--tag", "job_name=test-1"},
@@ -454,7 +454,7 @@ func TestNewRunnerJobNoisy(t *testing.T) {
 					AutomountServiceAccountToken: &automountServiceAccountToken,
 					SecurityContext:              &corev1.PodSecurityContext{},
 					Containers: []corev1.Container{{
-						Image:           "ghcr.io/grafana/k6-operator:latest-runner",
+						Image:           "ghcr.io/audacioustux/k6-operator:latest-runner",
 						ImagePullPolicy: "",
 						Name:            "k6",
 						Command:         []string{"k6", "run", "/test/test.js", "--address=0.0.0.0:6565", "--paused", "--tag", "instance_id=1", "--tag", "job_name=test-1"},
@@ -569,7 +569,7 @@ func TestNewRunnerJobUnpaused(t *testing.T) {
 					AutomountServiceAccountToken: &automountServiceAccountToken,
 					SecurityContext:              &corev1.PodSecurityContext{},
 					Containers: []corev1.Container{{
-						Image:           "ghcr.io/grafana/k6-operator:latest-runner",
+						Image:           "ghcr.io/audacioustux/k6-operator:latest-runner",
 						ImagePullPolicy: "",
 						Name:            "k6",
 						Command:         []string{"k6", "run", "--quiet", "/test/test.js", "--address=0.0.0.0:6565", "--tag", "instance_id=1", "--tag", "job_name=test-1"},
@@ -684,7 +684,7 @@ func TestNewRunnerJobArguments(t *testing.T) {
 					AutomountServiceAccountToken: &automountServiceAccountToken,
 					SecurityContext:              &corev1.PodSecurityContext{},
 					Containers: []corev1.Container{{
-						Image:           "ghcr.io/grafana/k6-operator:latest-runner",
+						Image:           "ghcr.io/audacioustux/k6-operator:latest-runner",
 						ImagePullPolicy: "",
 						Name:            "k6",
 						Command:         []string{"k6", "run", "--quiet", "--cool-thing", "/test/test.js", "--address=0.0.0.0:6565", "--paused", "--tag", "instance_id=1", "--tag", "job_name=test-1"},
@@ -800,7 +800,7 @@ func TestNewRunnerJobServiceAccount(t *testing.T) {
 					AutomountServiceAccountToken: &automountServiceAccountToken,
 					SecurityContext:              &corev1.PodSecurityContext{},
 					Containers: []corev1.Container{{
-						Image:           "ghcr.io/grafana/k6-operator:latest-runner",
+						Image:           "ghcr.io/audacioustux/k6-operator:latest-runner",
 						ImagePullPolicy: "",
 						Name:            "k6",
 						Command:         []string{"k6", "run", "--quiet", "/test/test.js", "--address=0.0.0.0:6565", "--paused", "--tag", "instance_id=1", "--tag", "job_name=test-1"},
@@ -917,7 +917,7 @@ func TestNewRunnerJobIstio(t *testing.T) {
 					AutomountServiceAccountToken: &automountServiceAccountToken,
 					SecurityContext:              &corev1.PodSecurityContext{},
 					Containers: []corev1.Container{{
-						Image:           "ghcr.io/grafana/k6-operator:latest-runner",
+						Image:           "ghcr.io/audacioustux/k6-operator:latest-runner",
 						ImagePullPolicy: "",
 						Name:            "k6",
 						Command:         []string{"scuttle", "k6", "run", "--quiet", "/test/test.js", "--address=0.0.0.0:6565", "--paused", "--tag", "instance_id=1", "--tag", "job_name=test-1"},
@@ -1046,7 +1046,7 @@ func TestNewRunnerJobCloud(t *testing.T) {
 					SecurityContext:              &corev1.PodSecurityContext{},
 					AutomountServiceAccountToken: &automountServiceAccountToken,
 					Containers: []corev1.Container{{
-						Image:           "ghcr.io/grafana/k6-operator:latest-runner",
+						Image:           "ghcr.io/audacioustux/k6-operator:latest-runner",
 						ImagePullPolicy: "",
 						Name:            "k6",
 						Command:         []string{"k6", "run", "--quiet", "--out", "cloud", "/test/test.js", "--address=0.0.0.0:6565", "--paused", "--tag", "instance_id=1", "--tag", "job_name=test-1"},
@@ -1172,7 +1172,7 @@ func TestNewRunnerJobLocalFile(t *testing.T) {
 					AutomountServiceAccountToken: &automountServiceAccountToken,
 					SecurityContext:              &corev1.PodSecurityContext{},
 					Containers: []corev1.Container{{
-						Image:           "ghcr.io/grafana/k6-operator:latest-runner",
+						Image:           "ghcr.io/audacioustux/k6-operator:latest-runner",
 						ImagePullPolicy: "",
 						Name:            "k6",
 						Command:         []string{"sh", "-c", "if [ ! -f /test/test.js ]; then echo \"LocalFile not found exiting...\"; exit 1; fi;\nk6 run --quiet /test/test.js --address=0.0.0.0:6565 --paused --tag instance_id=1 --tag job_name=test-1"},
@@ -1305,7 +1305,7 @@ func TestNewRunnerJobWithInitContainer(t *testing.T) {
 						},
 					},
 					Containers: []corev1.Container{{
-						Image:           "ghcr.io/grafana/k6-operator:latest-runner",
+						Image:           "ghcr.io/audacioustux/k6-operator:latest-runner",
 						ImagePullPolicy: corev1.PullNever,
 						Name:            "k6",
 						Command:         []string{"k6", "run", "--quiet", "/test/test.js", "--address=0.0.0.0:6565", "--paused", "--tag", "instance_id=1", "--tag", "job_name=test-1"},
@@ -1484,7 +1484,7 @@ func TestNewRunnerJobWithVolume(t *testing.T) {
 						},
 					},
 					Containers: []corev1.Container{{
-						Image:           "ghcr.io/grafana/k6-operator:latest-runner",
+						Image:           "ghcr.io/audacioustux/k6-operator:latest-runner",
 						ImagePullPolicy: corev1.PullNever,
 						Name:            "k6",
 						Command:         []string{"k6", "run", "--quiet", "/test/test.js", "--address=0.0.0.0:6565", "--paused", "--tag", "instance_id=1", "--tag", "job_name=test-1"},
@@ -1654,7 +1654,7 @@ func TestNewRunnerJobPLZTestRun(t *testing.T) {
 					ServiceAccountName:           "default",
 					AutomountServiceAccountToken: &automountServiceAccountToken,
 					Containers: []corev1.Container{{
-						Image:           "ghcr.io/grafana/k6-operator:latest-runner",
+						Image:           "ghcr.io/audacioustux/k6-operator:latest-runner",
 						ImagePullPolicy: corev1.PullNever,
 						Name:            "k6",
 						Command:         []string{"k6", "run", "--quiet", "/test/test.js", "--address=0.0.0.0:6565", "--paused", "--tag", "instance_id=1", "--tag", "job_name=test-1", "--no-setup", "--no-teardown", "--linger"},
