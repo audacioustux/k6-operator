@@ -1,4 +1,5 @@
-FROM radial/busyboxplus:curl
+# FROM radial/busyboxplus:curl
+FROM gcr.io/distroless/base
 
 # as defined by distroless for nonroot
 USER 65532:65532
