@@ -1,6 +1,5 @@
-# FROM radial/busyboxplus:curl
-FROM gcr.io/distroless/base
+FROM gcr.io/distroless/static:nonroot
 
 # as defined by distroless for nonroot
 USER 65532:65532
-COPY --from=redboxoss/scuttle:latest /scuttle /bin/scuttle
+COPY --from=kvij/scuttle:latest /scuttle /bin/scuttle
