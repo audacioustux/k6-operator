@@ -1,5 +1,4 @@
 FROM grafana/k6:latest
 
-# https://github.com/redboxllc/scuttle/pull/60#issuecomment-1342925256
 COPY --from=kvij/scuttle:latest scuttle /bin/scuttle
 ENTRYPOINT ["scuttle", "k6"]
