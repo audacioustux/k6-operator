@@ -28,14 +28,12 @@ jobs:
       - name: "Check image tag name"
         run: |
           echo "IMAGETAG=${{env.IMAGETAG}}"
-      - # Add support for more platforms with QEMU (optional)
-        # https://github.com/docker/setup-qemu-action
-        name: Set up QEMU
+      - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: "Build:buildx"
         uses: docker/setup-buildx-action@v3
         with:
-          version: v0.9.1 # Buildx version
+          version: v0.12.1 # Buildx version
       - name: "Build:login"
         uses: docker/login-action@v3
         with:
@@ -51,7 +49,7 @@ jobs:
           build-args: |
             GO_BUILDER_IMG=golang:1.19
           platforms: linux/amd64,linux/arm64
-          tags: ghcr.io/audacioustux/k6-operator:latest,ghcr.io/audacioustux/k6-operator:controller-${{env.IMAGETAG}}
+          tags: ghcr.io/grafana/k6-operator:latest,ghcr.io/grafana/k6-operator:controller-${{env.IMAGETAG}}
       - name: "Build:dockerimage"
         uses: docker/build-push-action@v5
         with:
@@ -59,7 +57,7 @@ jobs:
           push: true
           file: Dockerfile.runner
           platforms: linux/amd64,linux/arm64
-          tags: ghcr.io/audacioustux/k6-operator:latest-runner,ghcr.io/audacioustux/k6-operator:runner-${{env.IMAGETAG}}
+          tags: ghcr.io/grafana/k6-operator:latest-runner,ghcr.io/grafana/k6-operator:runner-${{env.IMAGETAG}}
       - name: "Build:dockerimage"
         uses: docker/build-push-action@v5
         with:
@@ -67,7 +65,7 @@ jobs:
           push: true
           file: Dockerfile.starter
           platforms: linux/amd64,linux/arm64
-          tags: ghcr.io/audacioustux/k6-operator:latest-starter,ghcr.io/audacioustux/k6-operator:starter-${{env.IMAGETAG}}
+          tags: ghcr.io/grafana/k6-operator:latest-starter,ghcr.io/grafana/k6-operator:starter-${{env.IMAGETAG}}
 
   bundle:
     name: "Generate bundle"
@@ -89,7 +87,7 @@ jobs:
         uses: imranismail/setup-kustomize@v2
       - name: "Bundle"
         run: |
-          cd config/default && kustomize edit set image ghcr.io/audacioustux/k6-operator=*:controller-${{env.IMAGETAG}} && kustomize build . > ../../bundle.yaml
+          cd config/default && kustomize edit set image ghcr.io/grafana/k6-operator=*:controller-${{env.IMAGETAG}} && kustomize build . > ../../bundle.yaml
       - name: "Branch"
         run: |
           git checkout -b release-${{env.IMAGETAG}}/bundle-update
